@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Password Generator</title>
+        <style>
+            /* Basic styling for the container and buttons */
+            body {
+                background-color: #97feed;
+                font-weight: 800;
+            }
+            h1 {
+                color: #191825;
+            }
+            .container {
+                width: 600px;
+                margin: 50px auto;
+                text-align: center;
+                background-color: #35a29f;
+                border-radius: 20px;
+            }
+            .container input[type="number"],
+            .container input[type="text"] {
+                width: 80%;
+                font-weight: bold;
+                padding: 8px;
+                margin: 10px 0;
+                border-radius: 5px;
+                border: none;
+            }
+            .container input[type="checkbox"] {
+                margin-right: 10px;
+                border-radius: 5px;
+            }
+            .container button {
+                padding: 10px 20px;
+                margin: 10px 5px;
+                font-family: Arial, Helvetica, sans-serif;
+                background-color: #071952;
+                color: white;
+                border-radius: 5px;
+                border: none;
+                cursor: pointer;
+            }
+
+            .close {
+                color: #071952;
+                cursor: pointer;
+            }
+            /* Modal styling */
+            #notificationModel {
+                display: none;
+                position: fixed;
+                top: 40%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 200px;
+                padding: 10px;
+                background-color: #97feed;
+                border-radius: 10px;
+                border: none;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Password Generator</h1>
+
+            <label for="length">Password Length:</label>
+            <input
+                type="number"
+                id="length"
+                min="1"
+                placeholder="Enter password length"
+            />
+
+            <div>
+                <input type="checkbox" id="includeUppercase" />
+                <label for="includeUppercase">Include Uppercase Letters</label>
+            </div>
+            <div>
+                <input type="checkbox" id="includeLowercase" />
+                <label for="includeLowercase">Include Lowercase Letters</label>
+            </div>
+            <div>
+                <input type="checkbox" id="includeNumber" />
+                <label for="includeNumber">Include Numbers</label>
+            </div>
+            <div>
+                <input type="checkbox" id="includeSpecialchars" />
+                <label for="includeSpecialchars"
+                    >Include Special Characters</label
+                >
+            </div>
+
+            <input
+                type="text"
+                id="password"
+                readonly
+                placeholder="Your password will appear here"
+            />
+
+            <button id="generateButton">Generate Password</button>
+            <button id="copy-Button">Copy Password</button>
+        </div>
+
+        <div id="notificationModel">
+            <span class="close">Cancel</span>
+            <p id="notificationMessage"></p>
+        </div>
+
+        <script src="./style.js"></script>
+    </body>
+</html>
